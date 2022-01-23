@@ -12,7 +12,6 @@ router.get(
   formasDePagoController.get
 );
 
-
 router.post(
   "/api/formasDePago",
   authController.authenticated,
@@ -41,6 +40,5 @@ router.post(
   authController.isAdmin,
   formasDePagoController.agregarDefaultData
 );
-
 
 module.exports = router;

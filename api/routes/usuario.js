@@ -36,6 +36,4 @@ router.delete(
   Controller.borrado
 );
 
-
-
 module.exports = router;

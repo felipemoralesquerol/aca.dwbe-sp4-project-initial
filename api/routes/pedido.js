@@ -9,13 +9,11 @@ const pedidoController = require("../controllers/pedidoController");
 
 router.get("/api/pedidos", authController.authenticated, pedidoController.get);
 
-
 router.post(
   "/api/pedidos",
   authController.authenticated,
   pedidoController.post
 );
-
 
 router.put(
   "/api/pedidos/:id",
@@ -53,7 +51,6 @@ router.put(
   }
 );
 
-
 router.get(
   "/api/pedidos/:id",
   authController.authenticated,
@@ -74,14 +71,12 @@ router.get(
   }
 );
 
-
 router.post(
   "/api/pedidos/:id/producto/:codeProducto",
   authController.authenticated,
   pedidoController.postProducto
 
 );
-
 
 router.patch(
   "/api/pedidos/:id/estado/:codeEstado",

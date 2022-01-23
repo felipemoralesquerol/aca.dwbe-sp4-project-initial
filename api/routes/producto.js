@@ -39,7 +39,4 @@ router.delete(
   productoController.delete
 );
 
-
-
-
 module.exports = router;
