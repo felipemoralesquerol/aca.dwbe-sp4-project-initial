@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
-const db = require("../config/db");
+const db = require("./config/db");
 
 const associations = require("./models/associations/core");
 

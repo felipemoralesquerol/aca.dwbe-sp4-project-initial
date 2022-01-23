@@ -1,359 +1,10 @@
 {
 	"info": {
-		"_postman_id": "23bce69a-ee3e-4be9-bdee-2e570cab3279",
+		"_postman_id": "c804ec88-202e-4cc7-8e21-ee922fbea793",
 		"name": "aca-sprint4-project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "formasDePago",
-			"item": [
-				{
-					"name": "/api/formasDePago",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:5000/api/formasDePago",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"formasDePago"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/formasDePago",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codigo\": \"N84\",\n        \"nombre\": \"Nuevodato\"\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/formasDePago",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"formasDePago"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/formasDePago",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codigo\": \"N1\",\n        \"nombre\": \"Nueva forma de Pago 2\"\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/formasDePago",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"formasDePago"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/formasDePago",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:5000/api/formasDePago/N6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"formasDePago",
-								"N6"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "productos",
-			"item": [
-				{
-					"name": "/api/productos",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:5000/api/productos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"productos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/productos",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codigo\": \"ABC\",\n        \"nombre\": \"Gaseaosa Cola\",\n        \"precioVenta\": \"100\",\n        \"descripcion\": \"Gaseosa cola popular\"\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/productos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"productos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/productos",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"codigo\": \"ABC\",\n        \"nombre\": \"Gaseaosa Cola\",\n        \"precioVenta\": \"100\",\n        \"descripcion\": \"Gaseosa cola popular\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/productos/ABC",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"productos",
-								"ABC"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/productos",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:5000/api/productos/ABC",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"productos",
-								"ABC"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/productos/api",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:5000/api/productos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"productos"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "pedidos",
-			"item": [
-				{
-					"name": "/api/pedidos",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:5000/api/pedidos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"pedidos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/api/pedidos",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"direccion\": \"A confirmar\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/pedidos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"pedidos"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
 		{
 			"name": "auth",
 			"item": [
@@ -556,6 +207,352 @@
 								"me"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "/api/productos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/productos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codigo\": \"ABC\",\n        \"nombre\": \"Gaseaosa Cola\",\n        \"precioVenta\": \"100\",\n        \"descripcion\": \"Gaseosa cola popular\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/productos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codigo\": \"ABC\",\n        \"nombre\": \"Gaseaosa Cola\",\n        \"precioVenta\": \"100\",\n        \"descripcion\": \"Gaseosa cola popular\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/productos/ABC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productos",
+								"ABC"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/productos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/productos/ABC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"productos",
+								"ABC"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "formasDePago",
+			"item": [
+				{
+					"name": "/api/formasDePago",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/formasDePago",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"formasDePago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/formasDePago",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codigo\": \"N84\",\n        \"nombre\": \"Nuevodato\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/formasDePago",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"formasDePago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/formasDePago",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"codigo\": \"N1\",\n        \"nombre\": \"Nueva forma de Pago 2\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/formasDePago",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"formasDePago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/formasDePago",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/formasDePago/N6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"formasDePago",
+								"N6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pedidos",
+			"item": [
+				{
+					"name": "/api/pedidos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/pedidos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"direccion\": \"A confirmar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "defaultData",
+			"item": [
+				{
+					"name": "usuarios/defaultData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "productos/defaultData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}
