@@ -11,7 +11,7 @@ exports.get = async (req, res, next) => {
         httpMessage.Error(req, res, error);
       }
       if (info) {
-        //console.log(info);
+        console.log("Recuperación desde cache: " + itemCache)
         res.json({ productos: JSON.parse(info) });
       } else {
         const data = await productos.findAll();
@@ -19,6 +19,7 @@ exports.get = async (req, res, next) => {
 
         // Agregado de clave en redis
         cache.set(itemCache, JSON.stringify(data), "EX", "600");
+        console.log("Agregado en cache: " + itemCache)
 
         // Resuesta
         res.json({ [itemCache]: data });
@@ -38,6 +39,7 @@ exports.post = async (req, res, next) => {
 
     //Borrado de clave para que se recargue en nueva operacion que lo necesite
     cache.del(itemCache);
+    console.log("Borrado de cache: " + itemCache)
 
     res.json({ status: data });
   } catch (error) {
@@ -96,6 +98,7 @@ exports.put = async (req, res, next) => {
 
       //Borrado de clave para que se recargue en nueva operacion que lo necesite
       cache.del(itemCache);
+      console.log("Borrado de cache: " + itemCache)
 
       res.json({
         status:
@@ -144,17 +147,19 @@ exports.agregarDefaultData = async (req, res, next) => {
     // Agregado masivo para pruebas de productos.
     try {
       for (let index = 0; index < 1000; index++) {
+        const nombre = "Producto de prueba " + index;
         dato = await productos.findOrCreate({
           where: {
             codigo: "PT" + index,
-            nombre: "Producto de prueba " + index,
+            nombre: nombre,
             descripcion: "Producto de prueba",
             precio_venta: 15 * index,
             stock: index,
           },
         });
+        console.log('Alta de ' + nombre)
       }
-    } catch (error) {};
+    } catch (error) { };
 
     httpMessage.Message("Agregado de data OK", res)
   } catch (error) {

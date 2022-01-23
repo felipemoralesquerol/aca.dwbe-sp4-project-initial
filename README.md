@@ -1,4 +1,4 @@
-## Curso de Desarrollo Web Bakend Acámica
+## Curso de Desarrollo Web Backend Acámica
 
 #### Descripción
 
