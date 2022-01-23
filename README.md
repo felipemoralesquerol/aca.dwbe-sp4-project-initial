@@ -44,7 +44,7 @@ Adaptaciones para soporte de Sprint Project N. 4
 
 1. Crear carpeta para su instalación
 2. Ingresar a la carpeta creada y desde la consola ejecutar:
-   `git clone https://github.com/felipemoralesquerol/aca-sprint1-project`
+   `git clone https://github.com/felipemoralesquerol/aca.dwbe-sp4-project-initial`
 3. Ingresar a la carpeta aca-sprint1-project.
 4. Ejecutar `npm install`.
 5. Copiar el archivo .env.example a .env
@@ -55,9 +55,9 @@ Adaptaciones para soporte de Sprint Project N. 4
 10. Ejecución de test ejecutando `npm run test`
 11. A disfrutar!!
 
-#### Documentación de la aplicación con SWAGGER:
+#### Documentación de la aplicación vía PostMan:
 
-- Ingresa a la URL http://localhost:5000/api-docs
+- Descarga y ejecuta localmente la colección https://github.com/felipemoralesquerol/aca.dwbe-sp4-project-initial/blob/master/api/postman/aca-sprint4-project.postman_collection.json
 
 ---
 
