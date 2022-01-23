@@ -1,7 +1,7 @@
 const httpMessage = require("./../helpers/httpMessage");
 const formasDePago = require("../models/formaDePago");
 
-const cache = require("../../config/cache");
+const cache = require("../config/cache");
 const itemCache = "formasDePago";
 
 exports.get = async (req, res, next) => {

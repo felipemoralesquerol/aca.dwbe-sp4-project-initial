@@ -1,8 +1,8 @@
 const { DataTypes, Model } = require("sequelize");
-const sequelize = require("../../config/db");
+const sequelize = require("../config/db");
 const passwordManager = require("../helpers/passwordManager");
 
-class UsuariosModel extends Model {}
+class UsuariosModel extends Model { }
 
 UsuariosModel.init(
   {

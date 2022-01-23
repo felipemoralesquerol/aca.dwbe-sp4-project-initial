@@ -1,7 +1,7 @@
 const { DataTypes, Model } = require("sequelize");
-const sequelize = require("../../config/db");
+const sequelize = require("../config/db");
 
-class ProductosModel extends Model {}
+class ProductosModel extends Model { }
 
 ProductosModel.init(
   {
@@ -17,7 +17,7 @@ ProductosModel.init(
       type: DataTypes.STRING,
     },
     precio_venta: {
-      type: DataTypes.DECIMAL(16,2),
+      type: DataTypes.DECIMAL(16, 2),
     },
     stock: {
       type: DataTypes.INTEGER,

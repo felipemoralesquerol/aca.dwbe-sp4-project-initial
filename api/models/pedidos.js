@@ -1,7 +1,7 @@
 const { DataTypes, Model } = require("sequelize");
-const sequelize = require("../../config/db");
+const sequelize = require("../config/db");
 
-class PedidosModel extends Model {}
+class PedidosModel extends Model { }
 
 PedidosModel.init(
   {
@@ -25,7 +25,7 @@ PedidosModel.init(
         "Pendiente => Confirmado => En preparación => Enviado => Entregado. PEN => CON => ENP => ENV => ENT",
     },
     monto_total: {
-      type: DataTypes.DECIMAL(16,2),
+      type: DataTypes.DECIMAL(16, 2),
       defaultValue: 0
     },
     anulado: {

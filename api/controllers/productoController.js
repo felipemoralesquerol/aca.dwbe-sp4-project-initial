@@ -1,7 +1,7 @@
 const httpMessage = require("./../helpers/httpMessage");
 const productos = require("../models/productos");
 
-const cache = require("../../config/cache");
+const cache = require("../config/cache");
 const itemCache = "productos";
 
 exports.get = async (req, res, next) => {

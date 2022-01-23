@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const authConfig = require("../../config/auth");
+const authConfig = require("../config/auth");
 const httpMessage = require("../helpers/httpMessage");
 
 module.exports = {
