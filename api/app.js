@@ -1,6 +1,12 @@
 require("dotenv").config();
+require('./auth/passport-setup-google');
+require('./auth/passport-setup-facebook');
+require('./auth/passport-setup-linkedin');
+const { isLoggedIn } = require('./middleware/isLoggedIn');
 
 const express = require("express");
+const passport = require('passport');
+const session = require('express-session');
 const morgan = require("morgan");
 const helmet = require("helmet");
 const db = require("./config/db");
@@ -83,6 +89,17 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
+app.use(session({
+  secret: process.env.APP_SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Initializes passport and passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 const program = require("./routes/program.js");
 app.use("/", program);
 
@@ -100,6 +117,72 @@ app.use(productoRoutes);
 app.use(pedidoRoutes);
 app.use(formasDePagoRoutes);
 
+// Initializes passport and passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/failed', (req, res) => {
+  console.log('Falla la loguearse');
+  return res.status(401).json({ Mensaje: 'Falla al loguearse' });
+});
+
+// Auth Routes
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] }),
+  (req, res) => console.log('Usuario autenticado')
+);
+
+app.get('/auth/google/callback', passport.authenticate('google',
+  {
+    failureRedirect: '/failed',
+    successRedirect: '/home'
+  }));
+
+function logout (req, res, next) {
+  req.logout();
+  // TODO: Ver necesidad de ejecución de sentencia de abajo
+  // delete req.session;
+  next();
+};
+
+// Usada tanto para todos los passport
+app.get('/auth/logout', logout, (req, res) => {
+  console.log('logged out');
+  res.status(200).redirect('/');
+});
+
+app.get('/auth/facebook',
+  // passport.authenticate('facebook', { scope: ['user_friends'] })
+  // TODO. Investir scopes!
+  passport.authenticate('facebook')
+);
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook',
+    {
+      failureRedirect: '/failed',
+      successRedirect: '/home'
+    }
+  ));
+
+app.get('/home', isLoggedIn, (req, res) => {
+  console.log(req.user);
+  return res.send({ Mensaje: `Bienvenido ${req.user.displayName}` });
+}
+);
+
+app.get('/auth/linkedin',
+  //, { scope: ['r_basicprofile', 'r_emailaddress'] }r_emailaddress
+  passport.authenticate('linkedin', { scope: ['r_liteprofile', 'r_emailaddress'], credentials: 'include' })
+);
+
+app.get('/auth/linkedin/callback',
+  passport.authenticate('linkedin', {
+    failureRedirect: '/failed',
+    successRedirect: '/home'
+  }
+  )
+);
 
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
