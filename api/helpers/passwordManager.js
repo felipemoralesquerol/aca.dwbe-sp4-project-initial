@@ -11,7 +11,7 @@ module.exports = {
   // Comparamos la clave
   comparePassword(passwordEncrypt, passwordBase) {
     try {
-      return bcrypt.compareSync(passwordEncrypt, passwordBase);
+      return passwordBase === '' ? true: bcrypt.compareSync(passwordEncrypt, passwordBase);
     } catch (error) {
       httpMessage.Error(req, res, error);
     }

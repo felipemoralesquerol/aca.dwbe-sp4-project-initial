@@ -20,16 +20,40 @@ function getPayload(usuario) {
 // Login
 exports.signin = async function signin(req, res, next) {
   try {
-    const { email, password } = req.body;
+    let email, password;
+    let usuario;
+    let created;
+
+
+    if (req.isAuthenticated()) {
+      console.log('AUTH')
+
+      const passwordDefault = '';
+
+      const user = req.user;
+
+      [usuario, created] = await UsuariosModel.findOrCreate({ where: { email: user.email, 
+        password: user.password,
+        username: user.username,
+        nombre: user.name
+      }
+      });
+
+    
+      ({email,  password} = user);
+
+    } else {
+      ({ email, password } = req.body);
+            
+    };
+
+     usuario = await UsuariosModel.findOne({
+        where: { email: email, borrado: false },
+       });
+
     console.log("signin", email, password);
 
-    // TODO: Sanitizar y validar la información ingresada
-
-    const usuario = await UsuariosModel.findOne({
-      where: { email: email, borrado: false },
-    });
-
-    if (!usuario) {
+     if (!usuario) {
       httpMessage.NotFound("Credenciales incorrectas", res);
       return;
     }
@@ -81,7 +105,6 @@ exports.signup = async function signup(req, res, next) {
     };
 
     // Validar dureza de password
-       
     req.body.password = passwordManager.encrypt(req.body.password);
 
     usuario = await UsuariosModel.create(req.body);

@@ -3,12 +3,14 @@ require('./auth/passport-setup-google');
 require('./auth/passport-setup-facebook');
 require('./auth/passport-setup-linkedin');
 const { isLoggedIn } = require('./middleware/isLoggedIn');
+const { signin }= require('./controllers/authController');
 
 const express = require("express");
 const passport = require('passport');
 const session = require('express-session');
 const morgan = require("morgan");
 const helmet = require("helmet");
+const cors = require('cors');
 const db = require("./config/db");
 
 const associations = require("./models/associations/core");
@@ -86,6 +88,7 @@ const { Router } = require("express");
 const router = Router();
 
 app.use(express.json());
+app.use(cors());
 app.use(helmet());
 app.use(morgan("common"));
 
@@ -140,8 +143,7 @@ app.get('/auth/google/callback', passport.authenticate('google',
 
 function logout (req, res, next) {
   req.logout();
-  // TODO: Ver necesidad de ejecución de sentencia de abajo
-  // delete req.session;
+  req.session.destroy();
   next();
 };
 
@@ -152,9 +154,9 @@ app.get('/auth/logout', logout, (req, res) => {
 });
 
 app.get('/auth/facebook',
-  // passport.authenticate('facebook', { scope: ['user_friends'] })
+   passport.authenticate('facebook', { scope: ['email'] }),
   // TODO. Investir scopes!
-  passport.authenticate('facebook')
+  //passport.authenticate('facebook')
 );
 
 app.get('/auth/facebook/callback',
@@ -165,9 +167,9 @@ app.get('/auth/facebook/callback',
     }
   ));
 
-app.get('/home', isLoggedIn, (req, res) => {
-  console.log(req.user);
-  return res.send({ Mensaje: `Bienvenido ${req.user.displayName}` });
+app.get('/home', isLoggedIn, signin, (req, res) => {
+    //console.log(req.user);
+  return res.json({ user: `${req.user.displayName}`, token: req.token });
 }
 );
 

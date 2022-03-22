@@ -20,6 +20,7 @@
             <p class="parrafo-registro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut libero tempore quae
                 repellat doloribus ullam incidunt consequatur numquam ea. Dolorum excepturi, delectus nulla perferendis
                 non mollitia. Accusantium laborum optio ullam. </p>
+            <button onclick="handlerListarProductos(event)">Productos</button>    
         </div>
         <div class="right">
 
@@ -32,7 +33,7 @@
                 <p id="messageError" class="parrafoError"></p>
                 <p class="registrarse-con">O registrase con </p>
                 <input type="button" value="Google"
-                    onclick="window.location.href = 'http://localhost:5000/auth/google'">
+                    onclick="handlerAuthGoogle(event)">
                 <input type="button" value="Facebook"
                     onclick="window.location.href = 'http://localhost:5000/auth/facebook'">
                 <input type="button" value="LinkedIn"
