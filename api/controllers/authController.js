@@ -28,8 +28,6 @@ exports.signin = async function signin(req, res, next) {
     if (req.isAuthenticated()) {
       console.log('AUTH')
 
-      const passwordDefault = '';
-
       const user = req.user;
 
       [usuario, created] = await UsuariosModel.findOrCreate({ where: { email: user.email, 
@@ -53,7 +51,7 @@ exports.signin = async function signin(req, res, next) {
 
     console.log("signin", email, password);
 
-     if (!usuario) {
+     if (!usuario )  {
       httpMessage.NotFound("Credenciales incorrectas", res);
       return;
     }
@@ -65,8 +63,8 @@ exports.signin = async function signin(req, res, next) {
 
     // Armado de payload
     let payload = getPayload(usuario);
-
-    const compare = passwordManager.comparePassword(password, usuario.password);
+     
+    const compare = req.isAuthenticated() ? true:passwordManager.comparePassword(password, usuario.password);
     if (compare) {
       const data = jwt.sign(
         payload,
