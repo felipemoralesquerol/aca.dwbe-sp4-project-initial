@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
+  process.env.DB_DATABASE,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
   {
@@ -17,12 +17,14 @@ const sequelize = new Sequelize(
 async function authenticate() {
   try {
     await sequelize.authenticate();
-    console.log(process.env.DB_NAME, process.env.DB_FORCE);
+    console.log(process.env.DB_DATABASE, process.env.DB_FORCE);
 
     if (process.env.DB_FORCE === 'true') {
       console.log('Recreación de base de datos ...');
       await sequelize.sync({ force: true });
     };
+    console.log('Sincronizando el modelo!')
+    await sequelize.sync();
 
     console.log("Conexión a la base de datos satisfactoriamente.");
     //const associations = require("./../api/models/associations/core");

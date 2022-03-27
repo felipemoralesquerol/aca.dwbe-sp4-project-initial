@@ -6,14 +6,14 @@ const authController = require("../controllers/authController");
 
 router.get(
   "/api/productos",
-  authController.authenticated,
+  //FMOFMO authController.authenticated,
   productoController.get
 );
 
 router.post(
   "/api/productos",
-  authController.authenticated,
-  authController.isAdmin,
+  //FMOFMO authController.authenticated,
+  //FMOFMO authController.isAdmin,
   productoController.post
 );
 

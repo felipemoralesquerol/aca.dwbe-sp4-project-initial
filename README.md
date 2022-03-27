@@ -40,7 +40,7 @@ Adaptaciones para soporte de Sprint Project N. 4
 - "swagger-jsdoc": "^6.1.0",
 - "swagger-ui-express": "^4.1.6"
 
-#### Instrucciones de instalación:
+#### Instrucciones de instalación en forma local:
 
 1. Crear carpeta para su instalación
 2. Ingresar a la carpeta creada y desde la consola ejecutar:
@@ -54,6 +54,11 @@ Adaptaciones para soporte de Sprint Project N. 4
 9. Arrancar el servidor ejecutando `npm run dev`
 10. Ejecución de test ejecutando `npm run test`
 11. A disfrutar!!
+
+#### Instrucciones de instalación en vía docker-compose:
+
+1. Ejecutar 
+
 
 #### Documentación de la aplicación vía PostMan:
 

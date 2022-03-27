@@ -90,26 +90,34 @@ exports.signin = async function signin(req, res, next) {
 // Registro
 exports.signup = async function signup(req, res, next) {
   try {
+    console.log("FMOFMO Paso 1")
     // TODO: Sanetizar y validar la entrada
     const { username, password, email, nombre, direccion_envio, telefono } = req.body;
     console.log("signup", req.body);
 
+    console.log("FMOFMO Paso 2")
     let usuario = await UsuariosModel.findOne({ where: { 
       [Op.or]: [{email: email}, {username: username}]
     }});
+    
+    console.log("FMOFMO Paso 3")
     if (usuario) {
       httpMessage.DuplicateData("Email y/o Username ya registrado!", res);
       return;
     };
 
+    console.log("FMOFMO Paso 4")
     // Validar dureza de password
-    req.body.password = passwordManager.encrypt(req.body.password);
-
+    //FMOFMOreq.body.password = passwordManager.encrypt(req.body.password);
+    
+    console.log("FMOFMO Paso 5")
     usuario = await UsuariosModel.create(req.body);
 
+    console.log("FMOFMO Paso 6")
     // Armado de payload
     let payload = getPayload(usuario);
 
+    console.log("FMOFMO Paso 1")
     jwt.sign(
       payload,
       process.env.JWT_SECRET_KEY,
@@ -124,6 +132,7 @@ exports.signup = async function signup(req, res, next) {
       }
     );
   } catch (err) {
+    console.log("FMOFMO Paso Fin")
     httpMessage.Error(req, res, err);
   }
 };

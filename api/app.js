@@ -1,4 +1,5 @@
-require("dotenv").config();
+console.log("Ambiente: " + process.env.NODE_ENV)
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 require('./auth/passport-setup-google');
 require('./auth/passport-setup-facebook');
 require('./auth/passport-setup-linkedin');
