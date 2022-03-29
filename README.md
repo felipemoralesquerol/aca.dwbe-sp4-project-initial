@@ -57,7 +57,9 @@ Adaptaciones para soporte de Sprint Project N. 4
 
 #### Instrucciones de instalación en vía docker-compose:
 
-1. Ejecutar 
+1. Ejecutar docker-compose up
+2. Ejecutar app4 (app node)
+3. (opcional) Para el caso de querer detener todos los servicios ejecutar docker-compose down
 
 
 #### Documentación de la aplicación vía PostMan:
