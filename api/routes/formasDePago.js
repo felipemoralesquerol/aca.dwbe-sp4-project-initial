@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const FormasDePagoModel = require("../models/formaDePago");
-
 const authController = require("../controllers/authController");
 const formasDePagoController = require("../controllers/formasDePagoController");
 
